@@ -12,8 +12,19 @@ let controller = function() {
       $(".comments").append($new_comment);
       //$new_comment.fadeIn();
       $(".comment-input input").val("");
-    }
-  };
+
+      // log the list of paragraph elements
+    console.log($(".comments").html());
+
+    localStorage.setItem("toDolist", $(".comments").html());
+  }
+};
+
+  if (localStorage.getItem("toDoList") != null) {
+    $(".comments").html(localStorage.getItem("toDoList"));
+  }
+
+  $(".comments").html(localStorage.getItem("toDolist"));
 
   $(".comment-input button").on("click", function(event) {
     addCommentFromInputBox();
